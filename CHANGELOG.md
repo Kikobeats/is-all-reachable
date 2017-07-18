@@ -1,3 +1,12 @@
+<a name="1.1.2"></a>
+## 1.1.2 (2017-07-18)
+
+* Refactor wrapped async expression ([a776eca](https://github.com/kikobeats/is-all-reachable/commit/a776eca))
+* Update index.js ([3fe10ce](https://github.com/kikobeats/is-all-reachable/commit/3fe10ce))
+* Update index.js ([2e9fb1c](https://github.com/kikobeats/is-all-reachable/commit/2e9fb1c))
+
+
+
 <a name="1.1.1"></a>
 ## 1.1.1 (2017-07-18)
 
