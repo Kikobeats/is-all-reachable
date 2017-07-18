@@ -1,23 +1,18 @@
 'use strict'
 
 const isReachable = require('is-reachable')
-const cb2promise = require('cb2promise')
-const eachAsync = require('each-async')
-const nodeify = require('nodeify')
+const {promisify} = require('util')
+const async = require('async')
 
-function isAllRecheable (hosts, cb) {
-  eachAsync(hosts, function (host, index, next) {
-    nodeify(isReachable(host), function (err, recheable) {
-      if (recheable) return next()
-      return next(err || {message: 'unrecheable', host: host})
-    })
-  }, function (err) {
-    if (!err) return cb(null, true)
-    if (err.message !== 'unrecheable') return cb(err)
-    return cb(null, false, err.host)
+const detect = promisify(async.detect)
+
+module.exports = async hosts => {
+  const isAllHostsReachables = await detect(hosts, async host => {
+    const isHostReachable = await isReachable(host)
+    return !isHostReachable
   })
-}
 
-module.exports = (hosts, cb) => (
-  cb ? isAllRecheable(hosts, cb) : cb2promise(isAllRecheable, hosts)
-)
+  return isAllHostsReachables
+    ? [false, isAllHostsReachables]
+    : [true]
+}
