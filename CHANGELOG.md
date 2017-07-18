@@ -1,3 +1,11 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2017-07-18)
+
+* Add callback support ([0bb51da](https://github.com/kikobeats/is-all-reachable/commit/0bb51da))
+* Remove callback support ([aa7a395](https://github.com/kikobeats/is-all-reachable/commit/aa7a395))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-07-18)
 
