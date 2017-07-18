@@ -1,11 +1,13 @@
 'use strict'
 
-var isReachable = require('is-reachable')
-var eachAsync = require('each-async')
+const isReachable = require('is-reachable')
+const cb2promise = require('cb2promise')
+const eachAsync = require('each-async')
+const nodeify = require('nodeify')
 
 function isAllRecheable (hosts, cb) {
-  eachAsync(hosts, function checkAvability (host, index, next) {
-    isReachable(host, function (err, recheable) {
+  eachAsync(hosts, function (host, index, next) {
+    nodeify(isReachable(host), function (err, recheable) {
       if (recheable) return next()
       return next(err || {message: 'unrecheable', host: host})
     })
@@ -16,4 +18,6 @@ function isAllRecheable (hosts, cb) {
   })
 }
 
-module.exports = isAllRecheable
+module.exports = (hosts, cb) => (
+  cb ? isAllRecheable(hosts, cb) : cb2promise(isAllRecheable, hosts)
+)

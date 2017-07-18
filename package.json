@@ -5,8 +5,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": {
-    "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
     "url": "https://github.com/Kikobeats"
   },
   "repository": {
@@ -37,8 +37,10 @@
     "socket"
   ],
   "dependencies": {
+    "cb2promise": "~1.1.0",
     "each-async": "~1.1.1",
-    "is-reachable": "~2.3.3"
+    "is-reachable": "~2.3.3",
+    "nodeify": "~1.0.1"
   },
   "devDependencies": {
     "coffee-script": "latest",
