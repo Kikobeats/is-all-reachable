@@ -2,17 +2,23 @@
 
 const isReachable = require('is-reachable')
 const {promisify} = require('util')
+const nodeify = require('nodeify')
 const async = require('async')
 
 const detect = promisify(async.detect)
 
-module.exports = async hosts => {
+const isAllReachable = async hosts => {
   const isAllHostsReachables = await detect(hosts, async host => {
     const isHostReachable = await isReachable(host)
     return !isHostReachable
   })
 
-  return isAllHostsReachables
-    ? [false, isAllHostsReachables]
-    : [true]
+  return isAllHostsReachables ? [false, isAllHostsReachables] : [true]
 }
+
+module.exports = (hosts, cb) =>
+  !cb
+    ? isAllReachable(hosts)
+    : nodeify(isAllReachable(hosts), (err, [isAllReachable, host]) =>
+        cb(err, isAllReachable, host)
+      )
