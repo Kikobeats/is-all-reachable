@@ -15,6 +15,4 @@ const isAllReachable = async hosts => {
 module.exports = (hosts, cb) =>
   !cb
     ? isAllReachable(hosts)
-    : nodeify(isAllReachable(hosts), (err, [isAllReachable, host]) =>
-        cb(err, isAllReachable, host)
-      )
+    : nodeify(isAllReachable(hosts), (err, result) => cb.apply(null, [err].concat(result)))
