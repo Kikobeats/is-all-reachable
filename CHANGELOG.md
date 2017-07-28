@@ -1,3 +1,11 @@
+<a name="1.1.3"></a>
+## 1.1.3 (2017-07-28)
+
+* one line ([c0b6c46](https://github.com/kikobeats/is-all-reachable/commit/c0b6c46))
+* Update package.json ([7c5c834](https://github.com/kikobeats/is-all-reachable/commit/7c5c834))
+
+
+
 <a name="1.1.2"></a>
 ## 1.1.2 (2017-07-18)
 
