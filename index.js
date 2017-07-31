@@ -8,7 +8,7 @@ const async = require('async')
 const detect = promisify(async.detect)
 
 const isAllReachable = async hosts => {
-  const isAllHostsReachables = await detect(hosts, async host => !await isReachable(host))
+  const isAllHostsReachables = await detect(hosts, async host => !isReachable(host))
   return isAllHostsReachables ? [false, isAllHostsReachables] : [true]
 }
 
