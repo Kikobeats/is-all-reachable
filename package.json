@@ -37,7 +37,7 @@
     "socket"
   ],
   "dependencies": {
-    "async": "~2.5.0",
+    "async": "~2.6.0",
     "is-reachable": "~2.3.3",
     "nodeify": "~1.0.1"
   },
