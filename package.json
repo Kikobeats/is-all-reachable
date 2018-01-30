@@ -38,7 +38,7 @@
   ],
   "dependencies": {
     "async": "~2.6.0",
-    "is-reachable": "~2.3.3",
+    "is-reachable": "~2.4.0",
     "nodeify": "~1.0.1"
   },
   "devDependencies": {
